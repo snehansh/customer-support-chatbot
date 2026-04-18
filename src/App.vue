@@ -17,7 +17,8 @@ const submitRequest = async () => {
 }
 
 const generateResponse = async (prompt: string) => {
-  const url = 'http://localhost:5092/generate'
+  // const url = 'http://localhost:5092/generate'
+  const url = 'https://customersupportchatbotapi.onrender.com/generate'
   const response = await fetch(url, {
     method: 'POST',
     headers: {
