@@ -10,6 +10,11 @@ interface ChatHistory {
   content: string
 }
 
+interface ChatResponse {
+  responseText: string,
+  chatHistory: ChatHistory[]
+}
+
 onMounted(() => generateResponse(""))
 
 const submitRequest = async () => {
@@ -29,7 +34,7 @@ const generateResponse = async (prompt: string) => {
     }),
   })
 
-  const result = await response.json();
+  const result: ChatResponse = await response.json();
   chatHistory.value = result.chatHistory.filter(x => x.role !== "system");
   resetForm();
 }
